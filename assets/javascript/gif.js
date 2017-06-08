@@ -63,12 +63,12 @@ function startStop(){
 }
 
 $(document).on('click', '.gif', startStop);
-// Render buttons per wrestler in array
+// Render buttons per gif in array
 function displayButtons(){
 	// Start by clearing buttons
 	$('#gif-buttons').empty();
-	// Rerender buttons per wrestler appending results
-	for(var i in topics){
+	// Rerender buttons per gif appending results
+	for(var i = 0; i < topics.length; i++){
 		var a = $('<button>');
 		a.addClass('btn btn-primary btn-lg');
 			a.attr("data-name", topics[i]);
