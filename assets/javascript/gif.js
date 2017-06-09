@@ -1,5 +1,6 @@
 // Gif Topics
-var topics = ['Celery Man', 'The Office', '30 Rock', 'Saul Goodman', 'Taxi Driver', 'Titus Andromedon', 'Ron Swanson', 'PubLIZity'];
+// I Hope The Utter Weirdness of These Gifs Helps You Make It Through the Day
+var topics = ['Celery Man', 'Eric Wareheim', 'PubLIZity', 'Hannibal Buress', 'Spagett', 'Tim Heidecker', 'Bird Up'];
 
 
 
