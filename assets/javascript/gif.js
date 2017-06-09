@@ -91,7 +91,7 @@ function displayGifs() {
 			var imgURL_still = response.data[i].images.original_still.url;
 
 			// Create Image
-			var imgGif = $("<img height='280px' data-state='still' class='gif'>");
+			var imgGif = $("<img height='280px' width='280px' data-state='still' class='gif'>");
 			imgGif.attr('src', imgURL_still);
 			imgGif.attr('data-still', imgURL_still);
 			imgGif.attr('data-animate', imgURL);
