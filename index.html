@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- PAGE TITLE -->
 	<title>GifTasic</title>
 
 	<!-- RESET CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	
-	<!-- Latest compiled and minified CSS -->
+	<!-- BOOTSTRAP CSS CDN -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- JQUERY CDN -->
@@ -21,50 +22,59 @@
 </head>
 <body>
 	
+	<!-- MARGIN -->
 	<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+
+	<!-- CONTENT COLUMN -->
 	<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
 
-	<!-- JUMBOTRON HEADER -->
-	<div class="row">
-		<div class="jumbotron text-center">
-			<h1>Gif-Tastic!</h1>
+		<!-- JUMBOTRON HEADER -->
+		<div class="row">
+			<div class="jumbotron text-center">
+				<h1>Gif-Tastic!</h1>
+			</div>
 		</div>
-	</div>
+		<!-- END JUMBOTRON HEADER -->
 
-	<!-- NAVBAR FOR USER SEARCH FIELD -->
-	<div class="row">
-	  <nav class="navbar navbar-default">		
-			<p class="navbar-text navbar-left">SEARCH FOR NEW GIF CATEGORIES...</p>
-	  	<form class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Find Some Gifs!" id="gif-search">
-        </div>
-        <button type="submit" class="btn btn-default" id="submit-search" style="margin-right:18px">Search</button>
-      </form>
-	  </nav>
-	</div>
-
-	<!-- BUTTONS DIV -->
-	<div class="row text-center">
-		<div id="gif-buttons" class="text-center">		
+		<!-- NAVBAR FOR USER SEARCH FIELD -->
+		<div class="row">
+		  <nav class="navbar navbar-default">		
+				<p class="navbar-text navbar-left">SEARCH FOR NEW GIF CATEGORIES...</p>
+		  	<form class="navbar-form navbar-right">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Find Some Gifs!" id="gif-search">
+	        </div>
+	        <button type="submit" class="btn btn-default" id="submit-search" style="margin-right:18px">Search</button>
+	      </form>
+		  </nav>
 		</div>
-		<h3>Click On Image to Animate/Pause</h3>
+		<!-- END NAVBAR FOR USER SEARCH FIELD -->
+
+		<!-- BUTTONS DIV -->
+		<div class="row text-center">
+			<div id="gif-buttons" class="text-center">		
+			</div>
+			<h3>Click On Image to Animate/Pause</h3>
+		</div>
+		<!-- END BUTTONS DIV -->
+		
+		<br>
+
+		<!-- GIF DISPLAY DIV -->
+		<div class="row text-center">
+			<div id="gif-dock" class="center-block" style="margin-left: 12%; margin-right: 12%">
+				
+			</div>	
+		</div>
+		<!-- END GIF DISPLAY DIV -->
+
 	</div>
-	
-	<br>
+	<!-- END CONTENT COLUMN -->
 
-	<!-- GIF DIV -->
-	<div class="row text-center">
-		<div id="gif-dock" class="center-block" style="margin-left: 12%; margin-right: 12%">
-			
-		</div>	
-	</div>
-
-
-	</div><!-- End of Main Div -->
+	<!-- MARGIN -->
 	<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
 
-
+<!-- PROGRAM JS LINK -->
 <script type="text/javascript" src="assets/javascript/gif.js"></script>
 </body>
 </html>
