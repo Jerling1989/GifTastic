@@ -1,69 +1,69 @@
-// Gif Topics
-// I Hope The Utter Weirdness of These Gifs Helps You Make It Through the Day
+// GIF TOPICS
+// I HOPE THE UTTER WEIRDNESS OF THESE GIFS HELPS YOU MAKE IT THROUGH THE DAY
 var topics = ['Celery Man', 'Eric Wareheim', 'PubLIZity', 'Hannibal Buress', 'Spagett', 'Tim Heidecker', 'Bird Up'];
 
 
 
-// Adds New Gif Topic to Array
+// ADDS NEW GIF TOPIC TO ARRAY
 $('#submit-search').on('click', function(){
 
-	// Prevents Page From Reloading When 
-	// User Clicks Submit Button
+	// PREVENTS PAGE FROM RELOADING WHEN
+	// USER CLICKS SUBMIT BUTTON
   event.preventDefault();
 
-  // Puts User Input From Search From into a Variable
+  // PUTS USER INPUT FROM SEARCH FORM INTO A VARIABLE
   var newTopic = $('#gif-search').val().trim();
 
-  // Adds User Input to End of Array
+  // ADDS USER INPUT TO END OF ARRAY
   topics.push(newTopic);
 
-  // Clears the Input Field
+  // CLEARS THE INPUT FIELD
   $('#gif-search').val('');
 
-  // Reset buttons
+  // RESET BUTTONS
   renderButtons();
 
 });
 
 
-// Renders Buttons for all the Gif Topics
-// in the Array
+// RENDERS BUTTONS FOR ALL THE GIF TOPICS
+// IN THE ARRAY
 function renderButtons() {
 
-	// Clears the Buttons Before we Append the New Topic
-	// (So the array isn't displayed more than once)
+	// CLEARS THE BUTTONS BEFORE WE APPEND THE NEW TOPIC
+	// (SO THE ARRAY ISN'T DISPLAYED MORE THAN ONCE)
 	$('#gif-buttons').empty();
 
-	// Loop Through the Array
+	// LOOP THROUGH THE ARRAY
 	for (i=0; i < topics.length; i++) {
 		console.log(topics[i]);
-		// Creates Buttons with Bootstrap Class
+		// CREATES BUTTONS WITH BOOTSTRAP CLASS
 		var a = $("<button style='margin:5px' class='btn btn-primary btn-lg'>");
-		// Adds Class of topics to use as jQuery Selector
+		// ADDS CLASS OF TOPICS TO USE AS JQUERY SELECTOR
 		a.addClass('topics');
-		// Adds Data Attribute
+		// ADDS DATA ATTRIBUTE
 		a.attr('data-name', topics[i]);
-		// AddS Text from the Array to the Buttons
+		// ADDS TEXT FROM THE ARRAY TO THE BUTTONS
 		a.text(topics[i]);
-		// Appends Buttons to the gif-buttons Div
+		// APPENDS BUTTONS TO THE GIF-BUTTONS DIV
 		$('#gif-buttons').append(a);
 	}
 
 }
 
 
-// Function to Display the Gifs When User Clicks
+// FUNCTION TO DISPLAY THE GIFS WHEN USER CLICKS
 function displayGifs() {
 
-	// Get The Gif Topic From Button
+	// GET THE GIF TOPIC FROM BUTTON
 	var topic = $(this).attr('data-name');
-	// Store URL to Search Topic in a Variable
-	var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + topic + '&api_key=dc6zaTOxFJmzC&limit=10';
+	// STORE URL TO SEARCH TOPIC IN A VARIABLE
+	var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + topic + '&api_key=dc6zaTOxFJmzC&limit=12';
 
-	// Clears the gif-dock Div of Any Gifs
+	// CLEARS THE GIF-DOCK DIV OF ANY GIFS
 	$('#gif-dock').empty();
 
-	// AJAX Request to the GIPHY API
+	// AJAX REQUEST TO THE GIPHY API
 	$.ajax({
 		url: queryURL,
 		method: "GET"
@@ -71,34 +71,34 @@ function displayGifs() {
 
 		console.log(response);
 
-		// Use a Loop to Create Divs for the 10 Gifs Returned from the API
+		// USE A LOOP TO CREATE DIVS FOR THE 10 GIFS RETURNED FROM THE API
 		for (i=0;i<response.data.length;i++) {
 
-			// Create New Div for Gifs in Variable
+			// CREATE NEW DIV FOR GIFS IN VARIABLE
 			var gifDiv = $("<div style='float:left;margin:5px'>");
-			// Create Variable for Gif Rating
+			// CREATE VARIABLE FOR GIF RATING
 			var gifRating = response.data[i].rating;
 			console.log(gifRating);
 			gifRating = gifRating.toUpperCase();
-			// Create and Poputalte <p> to Hold Rating
+			// CREATE AND POPULATE <p> TO HOLD RATING
 			var printRating = $('<p>').text('Rating: ' + gifRating);
-			// Append Rating to gifDiv
+			// APPEND RATING TO GIFDIV
 			gifDiv.append(printRating);
 
-			// Get Display Image URLs From GIPHY API AJAX Request
-			// and Store Them in Variables
+			// GET DISPLAY IMAGE URLS FROM GIPHY API AJAX REQUEST
+			// AND STORE THEM IN VARIABLES
 			var imgURL = response.data[i].images.original.url;
 			var imgURL_still = response.data[i].images.original_still.url;
 
-			// Create Image
+			// CREATE IMAGE
 			var imgGif = $("<img height='280px' width='280px' data-state='still' class='gif'>");
 			imgGif.attr('src', imgURL_still);
 			imgGif.attr('data-still', imgURL_still);
 			imgGif.attr('data-animate', imgURL);
-			//Append to gifDiv
+			// APPEND TO GIFDIV
 			gifDiv.append(imgGif);
 
-			// Append gifDiv to gif-dock Div on Page
+			// APPEND GIFDIV TO GIF-DOCK DIV ON PAGE
 			$('#gif-dock').append(gifDiv);
 		}
 
@@ -106,32 +106,32 @@ function displayGifs() {
 
 }
 
-// Create Buttons From Topics Array Upon Page Load
+// CREATE BUTTONS FROM TOPICS ARRAY UPON PAGE LOAD
 renderButtons();
 
-// Add Click Event to Show Gifa When User Click a Button
-// with a Class of 'topics' Which We Added Before
+// ADD CLICK EVENT TO SHOW GIFS WHEN USER CLICKS A BUTTON
+// WITH A CLASS OF 'TOPICS' WHICH WE ADDED BEFORE
 $(document).on('click', '.topics', displayGifs);
 
-// Toggle Gif Animation When User Clicks
+// TOGGLE GIF ANIMATION WHEN USER CLICKS
 $(document).on('click','.gif', function() {
-	// Create Variable to Store Image State
-	//(still or animate)
+	// CREATE VARIABLE TO STORE IMAGE STATE
+	// (STILL OR ANIMATE)
 	var state = $(this).attr('data-state');
 	console.log(state);
-	// Check if Image is Still
+	// CHECK IF IMAGE IS STILL
 	if (state == 'still') {
-		// If So Change to Animate src and Switch data-state 
-		// to reflect changes (from still to animate)
+		// IF SO CHANGE TO ANIMATE SRC AND SWITCH DATA-STATE
+		// TO REFLECT CHANGES (FROM STILL TO ANIMATE)
 		$(this).attr('src', $(this).attr('data-animate'));
 		$(this).attr('data-state', 'animate');
 
 	} else {
-		// Change to Still src and change data-state
+		// CHANGE TO STILL SRC AND CHANGE DATA-STATE
 		$(this).attr('src', $(this).attr('data-still'));
 		$(this).attr('data-state', 'still');
 
 	}
 
-})
+});
 
