@@ -71,7 +71,7 @@ function displayGifs() {
 
 		console.log(response);
 
-		// USE A LOOP TO CREATE DIVS FOR THE 10 GIFS RETURNED FROM THE API
+		// USE A LOOP TO CREATE DIVS FOR THE 12 GIFS RETURNED FROM THE API
 		for (i=0;i<response.data.length;i++) {
 
 			// CREATE NEW DIV FOR GIFS IN VARIABLE
